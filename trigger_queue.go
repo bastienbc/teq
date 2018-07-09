@@ -28,7 +28,7 @@ type triggerQueueImpl struct {
 	trigger    TriggerEventFactory
 }
 
-func newTriggerQueueImpl(t TriggerEventFactory, f EventFunc) *triggerQueueImpl {
+func NewTriggerQueueImpl(t TriggerEventFactory, f EventFunc) *triggerQueueImpl {
 	ctx, cancel := context.WithCancel(context.Background())
 	return &triggerQueueImpl{
 		listeners:  make(chan chan interface{}, 1),
