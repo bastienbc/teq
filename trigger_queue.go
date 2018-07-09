@@ -11,7 +11,7 @@ type EventFunc func(context.Context) interface{}
 
 type TriggerQueue interface {
 	Start(context.Context)
-	AddListeners(context.Context, chan interface{})
+	AddListener(context.Context, chan interface{})
 	Close()
 }
 
