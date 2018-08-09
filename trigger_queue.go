@@ -129,6 +129,7 @@ func (tqi *triggerQueueImpl) broadcast(msg interface{}) {
 			case cherr <- msg:
 			default:
 			}
+			close(cherr)
 		default:
 			more = false
 		}
@@ -147,6 +148,7 @@ func (tqi *triggerQueueImpl) endError(err error) {
 			case cherr <- err:
 			default:
 			}
+			close(cherr)
 		default:
 			more = false
 		}
